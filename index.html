@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Claude Used</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main id="loginView" class="login-view">
+      <form id="nameGateForm" class="login-card">
+        <p class="eyebrow">Claude Used</p>
+        <h1>กรอกชื่อก่อนใช้งาน</h1>
+        <p class="subtext">ใส่ชื่อของคุณเพื่อเข้าไปอัปเดตสถานะ และให้คนอื่นเห็นว่าใครกำลังใช้ Claude อยู่</p>
+        <label>
+          ชื่อของคุณ
+          <input id="gateNameInput" autocomplete="name" maxlength="48" placeholder="เช่น Nora" required />
+        </label>
+        <button class="enter-button" type="submit">เข้าใช้งาน</button>
+      </form>
+    </main>
+
+    <main id="appView" class="shell" hidden>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Claude Used</p>
+          <h1>ดูว่ามีคนใช้ Claude อยู่กี่คน</h1>
+          <p class="subtext">ให้แต่ละคนกรอกชื่อและตั้งสถานะ ระบบจะแสดงจำนวนคนที่กำลังใช้ Claude พร้อมกราฟเวลาเปรียบเทียบ</p>
+        </div>
+        <div class="status-card">
+          <span class="pulse"></span>
+          <span id="connectionStatus">ยังไม่ได้เข้าห้อง</span>
+        </div>
+      </section>
+
+      <section id="signedInPanel" class="panel signed-in" hidden>
+        <div>
+          <p class="label">ผู้ใช้งาน</p>
+          <strong id="signedInName">-</strong>
+        </div>
+        <button id="signOutButton" class="secondary" type="button">เปลี่ยนชื่อ</button>
+      </section>
+
+      <section class="workspace">
+        <form id="joinForm" class="panel">
+          <label>
+            ชื่อของคุณ
+            <input id="nameInput" autocomplete="name" maxlength="48" required readonly />
+          </label>
+          <fieldset>
+            <legend>สถานะใช้งาน</legend>
+            <label class="radio-row">
+              <input type="radio" name="usageStatus" value="using" checked />
+              <span>กำลังใช้ Claude</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="usageStatus" value="idle" />
+              <span>ไม่ได้ใช้ตอนนี้</span>
+            </label>
+          </fieldset>
+          <button type="submit">อัปเดตสถานะ</button>
+          <button id="stopClaudeButton" class="danger-button" type="button">หยุดใช้ Claude</button>
+          <button id="openClaudeButton" class="secondary" type="button">เปิด Claude</button>
+          <p class="hint">ระบบนี้เป็นการรายงานสถานะจากผู้ใช้เอง</p>
+        </form>
+
+        <section class="panel online-panel">
+          <div class="panel-head">
+            <div>
+              <p class="label">กำลังใช้ Claude</p>
+              <h2 id="countTitle">0 คน</h2>
+            </div>
+            <button id="copyLinkButton" class="secondary" type="button" disabled>คัดลอกลิงก์ห้อง</button>
+          </div>
+          <ul id="onlineList" class="online-list">
+            <li class="empty">ยังไม่มีใครเข้าห้อง</li>
+          </ul>
+        </section>
+      </section>
+
+      <section class="panel chart-panel">
+        <div class="panel-head">
+          <div>
+            <p class="label">กราฟเวลาใช้งาน</p>
+            <h2>เปรียบเทียบแต่ละคน</h2>
+          </div>
+        </div>
+        <div id="usageChart" class="usage-chart">
+          <p class="empty">ยังไม่มีข้อมูลเวลาใช้งาน</p>
+        </div>
+      </section>
+
+      <section class="panel chart-panel">
+        <div class="panel-head">
+          <div>
+            <p class="label">สรุปวันนี้</p>
+            <h2>เวลารวมรายคน</h2>
+          </div>
+        </div>
+        <div id="dailySummary" class="summary-list">
+          <p class="empty">ยังไม่มีประวัติวันนี้</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

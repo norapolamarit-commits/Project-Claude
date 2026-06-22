@@ -1,0 +1,13 @@
+{
+  "name": "claude-used",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Track self-reported Claude usage sessions with a live dashboard.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

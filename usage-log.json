@@ -1,0 +1,13 @@
+[
+  {
+    "id": "eebebccc-767f-4826-a7e0-035cd8b39a3f",
+    "roomId": "main",
+    "userId": "fc8096db-d837-4aa9-95c8-15e0c6ac2300",
+    "name": "กลุ่ม1",
+    "color": "#6d28d9",
+    "startedAt": "2026-06-22T09:15:35.283Z",
+    "endedAt": "2026-06-22T09:15:35.324Z",
+    "durationMs": 41,
+    "day": "2026-06-22"
+  }
+]
